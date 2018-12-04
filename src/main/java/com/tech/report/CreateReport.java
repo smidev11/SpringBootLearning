@@ -320,7 +320,7 @@ public class CreateReport {
 	    //Second row
 	    XWPFTableRow tableRowTwo = table.createRow();
 	    tableRowTwo.getCell(0).setText("PO NO");
-	    tableRowTwo.getCell(1).setText(genRef.getPono());
+	    //tableRowTwo.getCell(1).setText(genRef.getPono());
 	    tableRowTwo.getCell(2).setText("Coating Specification");
 	    tableRowTwo.getCell(3).setText(genRef.getCoatingSpec());
 	    
@@ -328,34 +328,34 @@ public class CreateReport {
 	    XWPFTableRow tableRow3 = table.createRow();
 	   
 	    tableRow3.getCell(0).setText("Part No");
-	    tableRow3.getCell(1).setText(genRef.getPartno());
+	    //tableRow3.getCell(1).setText(genRef.getPartno());
 	    tableRow3.getCell(2).setText("Coating System");
 	    tableRow3.getCell(3).setText(genRef.getCoatingSys());
 	    
 	    XWPFTableRow tableRow4 = table.createRow();
 	    tableRow4.getCell(0).setText("Rev no");
-	    tableRow4.getCell(1).setText(genRef.getRevNo());
+	    //tableRow4.getCell(1).setText(genRef.getRevNo());
 	    tableRow4.getCell(2).setText("Serial No");
-	    tableRow4.getCell(3).setText(genRef.getSerialno());
+	    //tableRow4.getCell(3).setText(genRef.getSerialno());
 	    
 	    
 	    // 4 row
 	    XWPFTableRow tableRow5 = table.createRow();
 	    tableRow5.getCell(0).setText("Heat No.");
-	    tableRow5.getCell(1).setText(genRef.getHeatno());
+	   // tableRow5.getCell(1).setText(genRef.getHeatno());
 	    tableRow5.getCell(2).setText("Heat Lot No.");
-	    tableRow5.getCell(3).setText(genRef.getHeatlotno());
+	    //tableRow5.getCell(3).setText(genRef.getHeatlotno());
 	  
 	    //5 row
 	    XWPFTableRow tableRow6 = table.createRow();
 	    tableRow6.getCell(0).setText("Description");
-	    tableRow6.getCell(1).setText(genRef.getDesc());
+	    //tableRow6.getCell(1).setText(genRef.getDesc());
 	    tableRow6.getCell(2).setText("Quantity");
-	    tableRow6.getCell(3).setText(genRef.getQnt());
+	  //  tableRow6.getCell(3).setText(genRef.getQnt());
 	    
 	    XWPFTableRow tableRow7 = table.createRow();
 	    tableRow7.getCell(0).setText("Job WO");
-	    tableRow7.getCell(1).setText(genRef.getJobwo());
+	    //tableRow7.getCell(1).setText(genRef.getJobwo());
 	    tableRow7.getCell(2).setText("Date");
 	    tableRow7.getCell(3).setText(genRef.getDate());
 	    

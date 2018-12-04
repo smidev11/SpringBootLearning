@@ -24,7 +24,6 @@ public class Degreasing implements java.io.Serializable{
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY, optional = false,cascade = CascadeType.ALL)
 	@JoinColumn(name = "job_id", nullable = false)
-	
 	private Job job;
 	
 	private String stime ;

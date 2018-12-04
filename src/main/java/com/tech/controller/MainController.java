@@ -28,6 +28,7 @@ import com.tech.entity.GenRef;
 import com.tech.entity.GenRefRepository;
 import com.tech.entity.Job;
 import com.tech.entity.JobRepository;
+import com.tech.entity.Part;
 import com.tech.entity.Service;
 import com.tech.entity.StudentRepository;
 import com.tech.pojo.CustomResp;
@@ -56,41 +57,41 @@ public class MainController {
 	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
 	public String goToHomePage() {
 		
-		/*Job j = new Job();
-		j.setClientName("Test");
-		j.setDate(new Date());
 		
-		GenRef g = new GenRef();
-		g.setClientName("HHHH");
-		g.setAddress("My Address");
-		
-		j.setGenref(g);
-		
-		jobRepository.save(j);*/
-		
-		//repository.save(new Student("John", "A1234657"));
-		//repository.save(new Student("AA", "A1234657"));
 		try{
+			
+			GenRef ref = new GenRef();
+			ref.setClientName("TestC");
+			ref.setAddress("PPPune");
+			
+			ref.setTcno("TC-999");
+			
+			Part p1 = new Part();
+			p1.setInspector("INS1");
+			p1.setPartname("Part1");
+			p1.setGenref(ref);
+			Part p2 = new Part();
+			p2.setPartname("Part2");
+			p2.setInspector("ins2");
+			p2.setRevNo("3");
+			p2.setGenref(ref);
+			
+			List<Part> plist = new ArrayList<>();
+			plist.add(p2);
+			
+			plist.add(p1);
+			ref.setPartList(plist);
+			
 			Job j = new Job();
-			j.setClientName("NNN");
+			j.setClientName(ref.getClientName());
 			j.setDate(new Date());
+			j.setTcno(ref.getTcno());
 			
+			j.setGenref(ref);
+			ref.setJob(j);
 			
+			jobRepository.saveAndFlush(j);
 			
-			/*GenRef g = new GenRef();
-			g.setClientName("GenClient");
-			g.setAddress("CAddress");
-			g.setJob(j);*/
-			
-			//j.setGenref(g);
-			
-			
-			jobRepository.save(j);
-			
-			Optional<Job> retrive = jobRepository.findById(1L);
-			System.out.println("'");
-			GenRef r = retrive.get().getGenref();
-			System.out.println(r.getDate());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -101,8 +102,10 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping(value = "/newjob",  method = RequestMethod.POST, headers = "Accept=application/json")
-	public ResponseEntity<?> newjob(@RequestBody GenRef genRef) {
+	
+	
+	@RequestMapping(value = "/job",  method = RequestMethod.POST, headers = "Accept=application/json")
+	public ResponseEntity<?> addJob(@RequestBody GenRef genRef) {
 		try{
 			
 			Job j = new Job();
@@ -110,8 +113,8 @@ public class MainController {
 			j.setDate(new Date());
 			j.setTcno(genRef.getTcno());
 			j.setGenref(genRef);
-			
 			genRef.setJob(j);
+			
 			try{
 				jobRepository.saveAndFlush(j);	
 			}catch (Exception e){
@@ -128,7 +131,7 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping(value = "/jobs",  method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value = "/job",  method = RequestMethod.GET, headers = "Accept=application/json")
 	@Transactional
 	public List<Job> getAlljob() {
 		List<Job> jobs = new ArrayList<>();

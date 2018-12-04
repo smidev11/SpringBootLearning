@@ -4,6 +4,8 @@ public class CustomResp {
 	private String message ;
 	private String status;
 	private boolean isError;
+	
+	
 	public String getMessage() {
 		return message;
 	}
